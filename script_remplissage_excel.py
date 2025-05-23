@@ -5,10 +5,13 @@ import random
 # Charger les données
 questionnaire = pd.read_excel('Questionnaire bénévoles 2025 - 19e édition (réponses).xlsx')
 schedule_raw = pd.read_csv('Tableau rempli - Feuille 1.csv', header=None)
+questionnaire.to_csv("Questionnaire_bénévoles_2025.csv")
 
-
+lignes_supprimees = questionnaire[questionnaire["Si oui, as tu quand même envie d'être bénévole ?"] == "Non !"]
 questionnaire = questionnaire[questionnaire["Si oui, as tu quand même envie d'être bénévole ?"] != "Non !"]
-print(questionnaire.shape)
+print(f"{len(lignes_supprimees)} ligne(s) supprimée(s).")
+print("Lignes supprimées :")
+print(lignes_supprimees[["Prénom", "NOM"]])
 
 # Détection des colonnes clés
 cols = questionnaire.columns
@@ -187,4 +190,5 @@ for qr in quota_rows:
 # Enregistrement et affichage final
 output_path = 'Tableau_final_benevoles_complet.xlsx'
 filled.to_excel(output_path, index=False)
+filled.to_csv("Tableau_final_benevoles_complet.csv")
 print(f"✅ Planning complet mis à jour : {output_path}")
