@@ -13,8 +13,7 @@ load_dotenv()
 PRODUCTION = False  # Changez à True pour envoyer aux vraies adresses
 FAKE_EMAIL = "nokos46841@betzenn.com"  # Adresse de test quand PRODUCTION = False
 GMAIL_USERNAME = os.getenv("GMAIL_USERNAME")
-LIEN_TABLEAU = "https://docs.google.com/spreadsheets/d/1xkpUqZJvz-IIqCZ5M4Uk_Cio48ZIapwGYy1kILx76Ng/edit?gid=443923923#gid=443923923"  # Remplacez par votre lien
-
+LIEN_TABLEAU = "https://docs.google.com/spreadsheets/d/1xkpUqZJvz-IIqCZ5M4Uk_Cio48ZIapwGYy1kILx76Ng/edit?gid=443923923#gid=443923923"
 def process_schedule_data(schedule_file_path, email_df=None):
     """
     Process the schedule Excel file and create a list of dictionaries with volunteer information.
